@@ -18,25 +18,25 @@ const Alert = ({ preview }: Props) => {
         <div className="py-2 text-center text-sm">
           {preview ? (
             <>
-              This page is a preview.{" "}
+              当前页面为预览模式。{" "}
               <a
                 href="/api/exit-preview"
                 className="underline hover:text-teal-300 duration-200 transition-colors"
               >
-                Click here
+                点击此处
               </a>{" "}
-              to exit preview mode.
+              退出预览模式。
             </>
           ) : (
             <>
-              The source code for this blog is{" "}
+              本博客的源代码已在{" "}
               <a
                 href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
                 className="underline hover:text-blue-600 duration-200 transition-colors"
               >
-                available on GitHub
+                GitHub 上开源
               </a>
-              .
+              。
             </>
           )}
         </div>

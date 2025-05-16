@@ -1,6 +1,6 @@
 ---
-title: "Learn How to Pre-render Pages Using Static Generation with Next.js"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+title: "学习如何使用 Next.js 通过静态生成来预渲染页面"
+excerpt: "本文将向您介绍 Next.js 中静态生成 (Static Generation) 的概念，以及如何利用它来预渲染页面，从而提升网站性能和用户体验。"
 coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
@@ -10,10 +10,12 @@ ogImage:
   url: "/assets/blog/hello-world/cover.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+静态生成是 Next.js 的核心功能之一。通过在构建时生成 HTML 文件，您的用户可以更快地访问页面内容。这对于内容驱动的网站（如博客、文档）尤其有用。
 
-Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+与服务器端渲染 (SSR) 不同，静态生成不需要在每次请求时都由服务器动态生成页面。相反，页面在构建过程中一次性生成，然后可以部署到 CDN 进行全球分发，从而实现极低的延迟和高可用性。
 
-## Lorem Ipsum
+Next.js 通过 `getStaticProps` 函数来支持静态生成。您可以在此函数中获取页面所需的数据，这些数据将在构建时传递给页面组件进行渲染。对于动态路由，您还可以使用 `getStaticPaths` 来指定需要预渲染哪些路径。
 
-Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+## 核心概念
+
+在本节中，我们将深入探讨 `getStaticProps` 和 `getStaticPaths` 的工作原理，以及如何在不同场景下有效地使用它们。我们还将讨论增量静态再生 (Incremental Static Regeneration, ISR) 技术，它允许您在站点构建完成后，仍然能够更新和添加静态页面，而无需完全重新构建整个站点。
